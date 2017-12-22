@@ -1,2 +1,2 @@
 # react-sign-up
-This React "App" showcases some of the use of forms in react.  User input can be added to an array through a setState call and then continuously added on to.
+This React "App" showcases some of the use of forms in react.  User input can be added to an array through a setState call and then continuously added on to.  This is an example of an "uncontrolled component" and is not always best practice, since we are in a way manipulating the dom to match state.  Controlled components give react much more control over the user input and makes it so state and user input are always in sync with one other.
