@@ -1,0 +1,38 @@
+<body>
+    <script src="https://unpkg.com/react@16.0.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        class SignUp extends React.Component {
+          state = {names: []} //initial state declaration of an empty array
+          onFormSubmit = (evt) => {
+            const name = this.refs.name.value;
+            const names = [...this.state.names, name];
+            this.setState({names: names})
+            this.refs.name.value = '';
+            evt.preventDefault();
+          }
+          render() {
+            return (
+              <div>
+                <h1>Sign Up Sheet</h1>
+                <form onSubmit={this.onFormSubmit}>
+                    <input type='text'
+                      placeholder='Name'
+                      ref='name'
+                    />
+                  <input type='submit' />
+                  </form>
+                    <h3>Names</h3>
+                      <ul>
+                          { this.state.names.map((name, i) => <li key={i}>{name}</li>)}
+                      </ul>
+                </div>
+            )
+          }
+        }
+    ReactDOM.render(<SignUp />, document.getElementById('root'));
+    </script>
+    </body>
